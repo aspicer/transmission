@@ -948,7 +948,18 @@ static int comparePieceByWeight(void const* va, void const* vb)
         return 1;
     }
 
-    /* tertiary key: rarest first. */
+    /* tertiary key: earliest first. */
+    if (a->index < b->index)
+    {
+        return -1;
+    }
+
+    if (a->index > b->index)
+    {
+        return 1;
+    }
+
+    /* quaternary key: rarest first. */
     ia = rep[a->index];
     ib = rep[b->index];
 
@@ -962,7 +973,7 @@ static int comparePieceByWeight(void const* va, void const* vb)
         return 1;
     }
 
-    /* quaternary key: random */
+    /* quinary key: random */
     if (a->salt < b->salt)
     {
         return -1;

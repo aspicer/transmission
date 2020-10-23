@@ -21,6 +21,7 @@
 #include <string.h> /* memcmp */
 #include <stdlib.h> /* qsort */
 #include <limits.h> /* INT_MAX */
+#include <stdio.h>
 
 #include <event2/util.h> /* evutil_vsnprintf() */
 
@@ -757,7 +758,6 @@ static void tr_torrentInitFilePieces(tr_torrent* tor)
         {
             ++f;
         }
-
         firstFiles[p] = f;
     }
 
